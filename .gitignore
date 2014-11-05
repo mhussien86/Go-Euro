@@ -1,0 +1,11 @@
+.metadata/
+*.classpath
+Go Euro Search Form/bin/
+Go Euro Search Form/.settings/org.eclipse.jdt.core.prefs
+Go Euro Search Form\gen/
+Go Euro Search Form/gen/com/goeuro/searchform/R.java
+Go Euro Search Form/libs/android-support-v4.jar
+Go Euro Search Form/.project
+Go Euro Search Form/gen/com/goeuro/searchform/BuildConfig.java
+Go Euro Search Form/proguard-project.txt
+Go Euro Search Form/project.properties
