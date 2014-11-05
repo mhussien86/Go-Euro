@@ -1,4 +1,9 @@
-package com.goeuro.searchform;
+package com.goeuro.searchform.ui.activities;
+
+import com.goeuro.searchform.R;
+import com.goeuro.searchform.R.id;
+import com.goeuro.searchform.R.layout;
+import com.goeuro.searchform.R.menu;
 
 import android.app.Activity;
 import android.os.Bundle;
