@@ -9,3 +9,13 @@ Go Euro Search Form/.project
 Go Euro Search Form/gen/com/goeuro/searchform/BuildConfig.java
 Go Euro Search Form/proguard-project.txt
 Go Euro Search Form/project.properties
+android-process-button\bin/
+android-process-button\bin\classes/
+android-process-button/bin/classes/com/dd/processbutton/iml/
+android-process-button/bin/classes/com/dd/processbutton/R$dimen.class
+android-process-button/.settings/org.eclipse.jdt.core.prefs
+android-process-button/bin/
+Go Euro Search Form/gen/com/dd/processbutton/R.java
+android-process-button/.project
+android-process-button/gen/com/dd/processbutton/BuildConfig.java
+android-process-button/gen/com/dd/processbutton/R.java
