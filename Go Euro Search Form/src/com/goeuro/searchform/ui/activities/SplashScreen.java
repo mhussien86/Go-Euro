@@ -1,10 +1,6 @@
 package com.goeuro.searchform.ui.activities;
 
 import com.goeuro.searchform.R;
-import com.goeuro.searchform.R.id;
-import com.goeuro.searchform.R.layout;
-import com.goeuro.searchform.R.menu;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -17,6 +13,10 @@ public class SplashScreen extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+        
+        
+        
+        
     }
 
 
@@ -25,7 +25,11 @@ public class SplashScreen extends Activity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.splash_screen, menu);
         return true;
+        
+        
     }
+    
+    
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
