@@ -1,5 +1,5 @@
 
-package com.goeuro.searchform.common.dto;
+package com.goeuro.searchform.models.dto;
 
 public class Trip{
    	private Number _id;

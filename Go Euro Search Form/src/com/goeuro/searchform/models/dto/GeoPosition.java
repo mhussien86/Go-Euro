@@ -1,4 +1,4 @@
-package com.goeuro.searchform.common.dto;
+package com.goeuro.searchform.models.dto;
 
 public class GeoPosition{
    	private Number latitude;
