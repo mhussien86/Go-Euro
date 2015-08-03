@@ -8,19 +8,14 @@ import java.util.Locale;
 public class LocaleUtility
 {
 
-	/**
-	 * change the language of the application according to the user need
-	 * 
-	 * @param lang
-	 */
+
 	public static void setUpApplicationLocale(Context context, String lang)
 	{
 		Locale locale = new Locale(lang);
 		Locale.setDefault(locale);
 		Configuration config = new Configuration();
 		config.locale = locale;
-		context.getResources()
-				.updateConfiguration(config, context.getResources().getDisplayMetrics());
+		context.getResources().updateConfiguration(config, context.getResources().getDisplayMetrics());
 
 	}
 

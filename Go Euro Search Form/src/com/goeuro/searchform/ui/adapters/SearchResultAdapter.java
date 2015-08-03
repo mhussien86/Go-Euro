@@ -1,9 +1,6 @@
 package com.goeuro.searchform.ui.adapters;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-
 import com.goeuro.searchform.R;
 import com.goeuro.searchform.common.network.SearchRequest;
 import com.goeuro.searchform.models.dto.Trip;
@@ -18,23 +15,20 @@ import android.widget.TextView;
 
 public class SearchResultAdapter extends ArrayAdapter<Trip> implements Filterable {
  
+	
+	ArrayList<Trip> resultList;
+    Context mContext;
+     
+    SearchRequest searchRequest = new SearchRequest();
+    
     public SearchResultAdapter(Context context, int resource) {
 		super(context, resource);
 		   mContext = context;
-	       mResource = resource;
 	}
-
-	ArrayList<Trip> resultList;
- 
-    Context mContext;
-    int mResource;
-     
-    SearchRequest searchRequest = new SearchRequest();
  
  
     @Override
     public int getCount() {
-        // Last item will be the footer
         return resultList.size();
     }
  
@@ -43,6 +37,10 @@ public class SearchResultAdapter extends ArrayAdapter<Trip> implements Filterabl
         return resultList.get(position);
     }
  
+    @Override
+    public long getItemId(int position) {
+    	return position ;
+    }
     static class ViewHolder {
         public TextView autocompleteTextView;
     }
@@ -53,10 +51,13 @@ public class SearchResultAdapter extends ArrayAdapter<Trip> implements Filterabl
          if (row == null) {
              row = LayoutInflater.from(mContext).inflate(R.layout.autocomplete_list_item,parent, false);
      
-        if (position != (resultList.size() - 1)) {
+        if (!resultList.isEmpty() || resultList.get(position).getFullName().equalsIgnoreCase("")) {
             holder.autocompleteTextView = (TextView) row.findViewById(R.id.autocompleteText);
             holder.autocompleteTextView.setText(resultList.get(position).getFullName());
-        }
+        }/*else{
+        	 holder.autocompleteTextView = (TextView) row.findViewById(R.id.autocompleteText);
+        	holder.autocompleteTextView.setVisibility(View.GONE);
+        }*/
          } else {
              holder = (ViewHolder) row.getTag();
          }
@@ -81,6 +82,7 @@ public class SearchResultAdapter extends ArrayAdapter<Trip> implements Filterabl
  
             @Override
             protected void publishResults(CharSequence constraint, FilterResults results) {
+
                 if (results != null && results.count > 0) {
 //                	Collections.sort(results.values, new CustomComparator());
 
@@ -88,6 +90,7 @@ public class SearchResultAdapter extends ArrayAdapter<Trip> implements Filterabl
                 }
                 else {
 //                	Collections.sort(results.values, new CustomComparator());
+//                	 notifyDataSetChanged();
                     notifyDataSetInvalidated();
                 }
             }

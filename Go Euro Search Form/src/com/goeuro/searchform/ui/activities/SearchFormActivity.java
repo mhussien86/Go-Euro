@@ -1,6 +1,5 @@
 package com.goeuro.searchform.ui.activities;
 
-import java.util.ArrayList;
 
 import com.dd.processbutton.iml.ActionProcessButton;
 import com.goeuro.searchform.R;
@@ -9,6 +8,9 @@ import com.goeuro.searchform.models.dto.Trip;
 import com.goeuro.searchform.ui.adapters.SearchResultAdapter;
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
@@ -39,13 +41,13 @@ public class SearchFormActivity extends Activity implements ProgressGenerator.On
 		toEditText   = (AutoCompleteTextView)findViewById(R.id.edit_txt_end_location);
 
 		fromEditText.setAdapter(new SearchResultAdapter(getApplicationContext(), R.layout.autocomplete_list_item));
+
 		fromEditText.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 		    @Override
 		    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 		        // Get data associated with the specified position
-		        // in the list (AdapterView)
-		    	
-		        Trip country = (Trip) parent.getItemAtPosition(position);
+
+		        Trip country = (Trip) parent.getItemAtPosition(position);		        
 		        String name = country.getFullName();
 		        fromEditText.setText(name);
 		        Toast.makeText(getApplicationContext(), name, Toast.LENGTH_SHORT).show();

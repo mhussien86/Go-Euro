@@ -30,6 +30,7 @@ public class SearchRequest {
 	 
 	        try {
 	            StringBuilder sb = new StringBuilder(AppConstants.WEB_SERVICES_BASE_URL +LocaleUtility.getLocale(mContext) +"/"+ input);
+	            Log.e(TAG, sb.toString() );
 	            URL url = new URL(sb.toString());
 	            conn = (HttpURLConnection) url.openConnection();
 	            InputStreamReader in = new InputStreamReader(conn.getInputStream());
@@ -60,38 +61,5 @@ public class SearchRequest {
 
 	        return resultList;
 	    }
-	
-	
-	
-//	private void makeSearchReq(String locale, String term) {
-//        
-//		
-//		
-//        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, AppConstants.WEB_SERVICES_BASE_URL+locale+"/"+term, null,
-//                new Response.Listener<JSONObject>() {
-//
-//                    @Override
-//                    public void onResponse(JSONObject response) {
-//                        Log.d("Response", response.toString());
-//                        Gson gson = new Gson();
-////                        Products products = gson.fromJson(response.toString(), Products.class);
-//
-////                        updateUI(products);
-//                    }
-//                }, new Response.ErrorListener() {
-//
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//                VolleyLog.d("Error", "Error: " + error.getMessage());
-//
-//            }
-//        }) {
-//
-//        };
-//
-//        // Adding request to request queue
-//        AppController.getInstance().addToRequestQueue(jsonObjReq,
-//                tag_json_obj);
-//
-//	}
+
 }
