@@ -13,6 +13,7 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AutoCompleteTextView;
 import android.widget.Toast;
 
@@ -40,9 +41,10 @@ public class SearchFormActivity extends Activity implements ProgressGenerator.On
 		fromEditText = (AutoCompleteTextView)findViewById(R.id.edit_txt_start_location);
 		toEditText   = (AutoCompleteTextView)findViewById(R.id.edit_txt_end_location);
 
-		fromEditText.setAdapter(new SearchResultAdapter(getApplicationContext(), R.layout.autocomplete_list_item));
+		SearchResultAdapter firstAdapter = new SearchResultAdapter(getApplicationContext(), R.layout.autocomplete_list_item);
+		fromEditText.setAdapter(firstAdapter);
 
-		fromEditText.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+		fromEditText.setOnItemClickListener(new OnItemClickListener() {
 		    @Override
 		    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 		        // Get data associated with the specified position
@@ -53,8 +55,9 @@ public class SearchFormActivity extends Activity implements ProgressGenerator.On
 		        Toast.makeText(getApplicationContext(), name, Toast.LENGTH_SHORT).show();
 		    }
 		});
-		toEditText.setAdapter(new SearchResultAdapter(getApplicationContext(), R.layout.autocomplete_list_item));
-		toEditText.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+		SearchResultAdapter secondAdapter = new SearchResultAdapter(getApplicationContext(), R.layout.autocomplete_list_item);
+		toEditText.setAdapter(secondAdapter);
+		toEditText.setOnItemClickListener(new OnItemClickListener() {
 		    @Override
 		    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 		        // Get data associated with the specified position

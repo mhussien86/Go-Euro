@@ -17,7 +17,7 @@
             android:id="@+id/edit_txt_start_location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             android:hint="@string/start_location_hint" >
         </AutoCompleteTextView>
 
@@ -25,15 +25,20 @@
             android:id="@+id/edit_txt_end_location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             android:hint="@string/end_location_hint" />
+
+        <DatePicker
+            android:id="@+id/datePicker1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
         <com.dd.processbutton.iml.ActionProcessButton
             android:id="@+id/search_btn"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             android:layout_weight="1"
             android:baselineAligned="false"
             android:text="@string/search_txt"

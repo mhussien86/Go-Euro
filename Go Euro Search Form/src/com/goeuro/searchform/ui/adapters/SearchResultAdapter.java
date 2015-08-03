@@ -1,10 +1,16 @@
 package com.goeuro.searchform.ui.adapters;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Map;
+import java.util.TreeMap;
+
 import com.goeuro.searchform.R;
 import com.goeuro.searchform.common.network.SearchRequest;
 import com.goeuro.searchform.models.dto.Trip;
 import android.content.Context;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +47,7 @@ public class SearchResultAdapter extends ArrayAdapter<Trip> implements Filterabl
     public long getItemId(int position) {
     	return position ;
     }
-    static class ViewHolder {
+    private class ViewHolder {
         public TextView autocompleteTextView;
     }
     @Override
@@ -56,7 +62,7 @@ public class SearchResultAdapter extends ArrayAdapter<Trip> implements Filterabl
             holder.autocompleteTextView.setText(resultList.get(position).getFullName());
         }/*else{
         	 holder.autocompleteTextView = (TextView) row.findViewById(R.id.autocompleteText);
-        	holder.autocompleteTextView.setVisibility(View.GONE);
+            	holder.autocompleteTextView.setVisibility(View.GONE);
         }*/
          } else {
              holder = (ViewHolder) row.getTag();
@@ -73,6 +79,7 @@ public class SearchResultAdapter extends ArrayAdapter<Trip> implements Filterabl
                 FilterResults filterResults = new FilterResults();
                 if (constraint != null) {
                     resultList = searchRequest.autocomplete(mContext, constraint.toString());
+                    Collections.sort(resultList, new CustomComparator());
                     filterResults.values = resultList;
                     filterResults.count = resultList.size();
                 }
@@ -84,13 +91,13 @@ public class SearchResultAdapter extends ArrayAdapter<Trip> implements Filterabl
             protected void publishResults(CharSequence constraint, FilterResults results) {
 
                 if (results != null && results.count > 0) {
-//                	Collections.sort(results.values, new CustomComparator());
 
+
+                	resultList = (ArrayList<Trip>) results.values;
                     notifyDataSetChanged();
                 }
                 else {
-//                	Collections.sort(results.values, new CustomComparator());
-//                	 notifyDataSetChanged();
+
                     notifyDataSetInvalidated();
                 }
             }
@@ -99,10 +106,10 @@ public class SearchResultAdapter extends ArrayAdapter<Trip> implements Filterabl
         return filter;
     }
 
-//    public class CustomComparator implements Comparator<YOUROBJECTCLASSNAME> {
-//        @Override
-//        public int compare(YOUROBJECTCLASSNAME o1, YOUROBJECTCLASSNAME o2) {
-//            return Double.compare(o1.getdistance,o2.getdistance);
-//        }
-//    } 
+    public class CustomComparator implements Comparator<Trip> {
+        @Override
+        public int compare(Trip o1, Trip o2) {
+            return Double.compare(o1.getDistance(),o2.getDistance());
+        }
+    } 
 }

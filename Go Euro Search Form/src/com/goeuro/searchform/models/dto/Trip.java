@@ -6,7 +6,7 @@ public class Trip{
    	private boolean coreCountry;
    	private String country;
    	private String countryCode;
-   	private String distance;
+   	private double distance;
    	private String fullName;
    	private GeoPosition geo_position;
    	private String iata_airport_code;
@@ -40,10 +40,10 @@ public class Trip{
 	public void setCountryCode(String countryCode){
 		this.countryCode = countryCode;
 	}
- 	public String getDistance(){
+ 	public double getDistance(){
 		return this.distance;
 	}
-	public void setDistance(String distance){
+	public void setDistance(double distance){
 		this.distance = distance;
 	}
  	public String getFullName(){

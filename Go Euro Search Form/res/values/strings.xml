@@ -8,7 +8,7 @@
     <string name="start_location_hint">Start location..</string>
     <string name="end_location_hint">End location..</string>
     <string name="Searching">Searching...</string>
-    <string name="Done">Done</string>
+    <string name="Done">Search is not yet implemented</string>
     
 
 </resources>
